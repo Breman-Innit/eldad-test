@@ -11,7 +11,7 @@ html{
     transition: 5s;
 }
 body{
-    background-image: url(/images/brand\ story\ home\ page\ design.png); 
+    background-image: url(images/brand\ story\ home\ page\ design.png); 
     background-attachment: fixed;
     background-size: cover;
     background-position: center;   
@@ -32,7 +32,7 @@ body{
     width: 100%;
     height: auto;
     min-height: 70vh;
-    background-image: url(/images/background.jpeg);
+    background-image: url(images/background.jpeg);
     background-size: cover;
     background-position: center;
 }
@@ -399,10 +399,10 @@ nav .menu{
     display: block;
     }
     #header{
-        background-image:url(/images/background.jpeg) ;
+        background-image:url(images/background.jpeg) ;
     }
     body{
-    background-image: url(/images/brand\ story\ home\ page\ design.png); 
+    background-image: url(images/brand\ story\ home\ page\ design.png); 
     background-attachment: scroll;
     background-size: cover;
     background-position: center; 
