@@ -1,5 +1,4 @@
 
-        /* ===== ORIGINAL STYLES (KEPT 100% IDENTICAL) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -33,14 +32,15 @@
             height: auto;
         }
 
-        #header {
-            width: 100%;
-            height: auto;
-            min-height: 70vh;
-            background-image: url(images/background.jpeg);
-            background-size: cover;
-            background-position: center;
-        }
+          #header {
+          width: 100%;
+          height: auto;
+          min-height: 70vh;
+          background-image: url(images/background.jpeg);
+          background-size: cover;
+          background-position: center 10%; 
+          }
+        
 
         .container {
             padding: 10px 10%;
@@ -50,32 +50,45 @@
         nav {
             display: flex;
             flex: 1;
-            justify-content: space-between;
-            position: center;
+            justify-content: center;       
+            align-items: center;
             flex-wrap: wrap;
             font-family: fantasy;
+            background-color: rgba(0, 0, 0, 0.6);  /* semi-transparent dark background for visibility */
+            padding: 15px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            margin-top: 10px;
         }
 
         nav ul li {
             display: inline-block;
             list-style: none;
-            margin: 10px 20px;
+            margin: 0 20px;                
             position: relative;
         }
 
         nav ul li a {
-            color: rgba(182, 255, 226, 0.934);
+            color: #ffffff;                
             text-decoration: none;
             font-size: 20px;
+            font-weight: 600;              
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: aquamarine;          
         }
 
         nav ul li a::after {
             content: '';
             width: 0%;
             height: 3px;
-            background: turquoise;
+            background: aquamarine;
             position: absolute;
-            bottom: -4px;
+            bottom: -6px;
             left: 0;
             right: 0;
             margin: auto;
@@ -85,7 +98,7 @@
         }
 
         nav ul li a:hover::after {
-            width: 100%;
+            width: 80%;
         }
 
         nav .menu1 {
@@ -341,7 +354,7 @@
             background: grey;
         }
 
-        /*----contact----*/
+        /* ===== CONTACT AREA – FIXED FOR LAPTOP (NO TWO LETTERS PER LINE) ===== */
         .contact-left {
             flex-basis: 35%;
         }
@@ -360,17 +373,35 @@
             font-size: 25px;
         }
 
+        /* social icons – laptop & desktop: force single line, no wrapping */
+        .social-icons {
+            white-space: nowrap;           /* prevent wrapping on big screens */
+        }
+
         .social-icons i {
             text-decoration: none;
-            font-size: 15px;
+            font-size: 16px;               /* slightly larger for readability */
             margin-right: 15px;
-            padding: 20px;
-            display: inline-block;
+            padding: 12px 0;
+            display: inline-flex;           /* better alignment */
+            align-items: center;
+            gap: 8px;
             transition: 0.5s;
+            color: rgb(205, 236, 227);      /* keep original color */
+            white-space: nowrap;             /* critical: keep icon+text on one line */
+            overflow: visible;
+            max-width: none;
         }
 
         .social-icons i:hover {
             transform: scale(1.5);
+        }
+
+        /* long email: allow wrap only as absolute last resort, but keep readable */
+        .social-icons i:first-child {
+            white-space: nowrap;
+            overflow: visible;
+            max-width: 100%;
         }
 
         .contact-right form {
@@ -426,10 +457,9 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* ===== ONLY MOBILE CHANGES (as requested: padding, first image fit, hamburger top right) ===== */
+        /* ===== MOBILE OVERRIDES (keep previous mobile fixes, but adapt contact for small screens) ===== */
         @media only screen and (max-width:600px) {
 
-            /* existing mobile rules remain, we ADD/OVERRIDE critical fixes */
             html,
             body {
                 width: 100%;
@@ -446,9 +476,7 @@
                 background-image: url(images/background.jpeg);
                 background-size: cover;
                 background-position: center;
-                /* ensure the whole image fits without cropping important part */
                 min-height: 50vh;
-                /* slightly reduced but image shows fully */
             }
 
             body {
@@ -512,7 +540,6 @@
             nav .menu1 {
                 display: block;
                 font-size: 30px;
-                /* change position: move icon to top right */
                 position: absolute;
                 top: 25px;
                 right: 25px;
@@ -592,18 +619,14 @@
                 padding: 20px;
             }
 
-            /* ===== CRITICAL FIXES: left/right padding & first image fit ===== */
             .container {
                 padding: 10px 5% !important;
-                /* more balanced on small screens */
             }
 
             .container2 {
                 padding: 0 5% !important;
-                /* add padding to containers that lacked it */
             }
 
-            /* apply to all major wrappers */
             #about .container2,
             #services .container2,
             #portfolio,
@@ -616,7 +639,6 @@
                 box-sizing: border-box;
             }
 
-            /* keep wel images full width inside padded parent */
             .wel-msg {
                 padding-left: 0 !important;
                 padding-right: 0 !important;
@@ -626,35 +648,62 @@
                 margin: 0;
             }
 
-            /* header background fit — make image visible completely */
             #header {
                 background-size: cover;
                 background-position: center;
                 min-height: 40vh;
-                /* adjust so full image is seen, not cut off */
             }
 
-            /* first image (header) is background, already fits. extra safety */
             #header .container {
                 padding-top: 15px;
             }
 
-            /* brand images: remove extra right padding on .img1 for small */
             .img1 {
                 padding-right: 0;
             }
 
-            /* contact social icons wrap well */
-            .social-icons i {
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                word-break: break-word;
-                padding: 10px 0;
-                font-size: 14px;
+            /* mobile contact: allow wrapping, but no two letters per line */
+            .social-icons {
+                white-space: normal;   /* override laptop nowrap */
             }
 
-            /* form inputs take full width */
+            .social-icons i {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex-wrap: nowrap !important;   /* keep icon+text together */
+                white-space: normal !important;
+                word-break: keep-all !important;
+                overflow-wrap: break-word !important;
+                padding: 12px 5px !important;
+                font-size: 15px !important;
+                line-height: 1.4 !important;
+                width: 100% !important;
+            }
+
+            .social-icons i::before {
+                flex-shrink: 0;
+                margin-right: 6px;
+            }
+
+            .social-icons i {
+                word-break: break-word !important;
+                hyphens: none !important;
+            }
+
+            .social-icons i:first-child {
+                word-break: break-word !important;
+            }
+
+            .contact-left {
+                padding-right: 0;
+            }
+
+            .contact-left p {
+                margin-top: 20px;
+                font-size: 16px;
+            }
+
             form input,
             form textarea {
                 width: 100% !important;
@@ -664,14 +713,12 @@
                 padding-right: 0;
             }
 
-            /* fine tune hamburger spacing */
             nav .menu1 {
                 top: 20px;
                 right: 20px;
             }
         }
 
-        /* extra small devices ( <= 400 ) */
         @media only screen and (max-width:400px) {
             .container {
                 padding: 10px 3% !important;
@@ -695,4 +742,35 @@
             .sub-title {
                 font-size: 36px;
             }
+
+            .social-icons i {
+                font-size: 14px !important;
+                padding: 10px 3px !important;
+                gap: 5px !important;
+            }
         }
+        /* Only apply the dark nav background on screens larger than 600px */
+@media only screen and (min-width: 601px) {
+    nav {
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        padding: 15px 20px;
+        border-radius: 50px;
+    }
+}
+
+/* On mobile, revert to transparent/no background */
+@media only screen and (max-width: 600px) {
+    nav {
+        background-color: transparent !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        justify-content: space-between; /* keep mobile layout */
+    }
+    
+    nav .menu1 {
+        background-color: transparent; /* ensure hamburger has no background */
+    }
+}
+    
