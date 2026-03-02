@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Kendits Trial</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/682e755d3c.js" crossorigin="anonymous"></script>
+    <style>
+        /* === ORIGINAL STYLES (PRESERVED EXACTLY) === */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            transition: 5s;
+        }
+        body {
+            background-image: url('/images/brand story home page design.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .wel-msg {
+            padding-top: 30px;
+            background-position: center;
+            background-size: cover;
+        }
+        .wel {
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: auto;
+        }
+        #header {
+            width: 100%;
+            height: auto;
+            min-height: 70vh;
+            background-image: url('/images/background.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            padding: 10px 10%;
+            margin-left: 0;
+        }
+        nav {
+            display: flex;
+            flex: 1;
+            justify-content: space-between;
+            position: center;
+            flex-wrap: wrap;
+            font-family: fantasy;
+        }
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+            position: relative;
+        }
+        nav ul li a {
+            color: rgba(182, 255, 226, 0.934);
+            text-decoration: none;
+            font-size: 20px;
+        }
+        nav ul li a::after {
+            content: '';
+            width: 0%;
+            height: 3px;
+            background: turquoise;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: block;
+            transition: 0.5s;
+            border-radius: 5px;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        nav .menu1 {
+            display: none;
+        }
+        /* ----the brand------ */
+        #brand {
+            flex: 1;
+        }
+        #brand h1 {
+            font-size: 60px;
+        }
+        .the-brand {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            background: #0cf1bc23;
+        }
+        .img1 {
+            flex-basis: 25%;
+            width: 100%;
+            height: auto;
+            padding-right: 10px;
+        }
+        .img2 {
+            flex-basis: 25%;
+            width: 100%;
+            overflow: hidden;
+            height: auto;
+        }
+        /*--------about us -----------*/
+        #about {
+            padding: 80px 0;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .about-col-1 {
+            flex-basis: 35%;
+        }
+        .about-col-1 img {
+            width: 100%;
+            padding: 10px;
+            border-radius: 15px;
+        }
+        .about-col-2 {
+            flex-basis: 60%;
+            -webkit-backdrop-filter: blur(7px);
+            backdrop-filter: blur(7px);
+        }
+        .sub-title {
+            font-size: 60px;
+            color: whitesmoke;
+            font-weight: 600;
+        }
+        .tab-title {
+            display: flex;
+            margin: 20px 0 40px;
+            padding-bottom: 10px;
+        }
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+        .tab-links:hover {
+            opacity: 0.7;
+            transform: translateY(-5px);
+            transition: 0.5s;
+            color: aquamarine;
+        }
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 5px;
+            background: skyblue;
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+        .tab-links.active-link::after {
+            width: 75%;
+        }
+        .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+        }
+        .tab-contents ul li span {
+            font-size: 20px;
+        }
+        .tab-contents {
+            display: none;
+        }
+        .tab-contents.active-tab {
+            display: block;
+        }
+        /* -----------services------*/
+        #services {
+            padding: 30px 0;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        .services-list div {
+            background: rgb(44, 40, 40);
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            border-right: 10px;
+            border-radius: 0px;
+            transition: 0.5s;
+        }
+        .services-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .services-list div a {
+            text-decoration: none;
+            color: aliceblue;
+            font-size: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            margin-left: 25%;
+            display: inline-block;
+        }
+        .services-list div:hover {
+            border-radius: 15px;
+            cursor: pointer;
+            opacity: 0.7;
+            box-shadow: 0 0 20px rgb(188, 210, 188);
+            transform: translateY(-10%);
+        }
+        /*-----portoflio-----*/
+        #portfolio {
+            padding: 50px 0;
+        }
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .work img {
+            width: 100%;
+            border-radius: 10px;
+            height: 300px;
+            display: block;
+            transition: transform 0.5s;
+        }
+        .layer {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.511), rgba(0, 3, 0, 0.825));
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+        .layer h3 {
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .layer a {
+            margin-top: 20px;
+            color: aquamarine;
+            text-decoration: none;
+            line-height: 60px;
+            background: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+        }
+        .work:hover img {
+            transform: scale(1.1);
+        }
+        .work:hover .layer {
+            height: 75%;
+        }
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid aqua;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: whitesmoke;
+            transition: 0.5s;
+        }
+        .btn:hover {
+            background: grey;
+        }
+        /*----contact----*/
+        .contact-left {
+            flex-basis: 35%;
+        }
+        .contact-right {
+            flex-basis: 60%;
+        }
+        .contact-left p {
+            margin-top: 30px;
+        }
+        .contact-left p i {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+        .social-icons i {
+            text-decoration: none;
+            font-size: 15px;
+            margin-right: 15px;
+            padding: 20px;
+            display: inline-block;
+            transition: 0.5s;
+        }
+        .social-icons i:hover {
+            transform: scale(1.5);
+        }
+        .contact-right form {
+            width: 100%;
+        }
+        form input, form textarea {
+            width: 80%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #2b1616;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+        .btn.btn2 {
+            display: inline-block;
+            background: rgb(27, 209, 27);
+            font-size: larger;
+            transition: 0.5s;
+        }
+        form btn2 {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 5px 0;
+            background: rgba(11, 224, 135, 0.538);
+            font-weight: 300;
+            margin-top: 2px;
+        }
+        nav .menu {
+            display: none;
+        }
+        .btn.btn2:hover {
+            opacity: 0.7;
+            transform: translateY(-10px);
+        }
+        .btn.btn2:active {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* === RESPONSIVE OVERRIDES (MOBILE-FIRST, EXACT SAME IMAGES, SAME APPEARANCE) === */
+        @media only screen and (max-width: 600px) {
+            html, body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            #header {
+                background-image: url('/images/background.jpeg');
+                min-height: 50vh;
+            }
+            body {
+                background-image: url('/images/brand story home page design.png');
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center;
+            }
+            .wel-msg {
+                padding-top: 30px;
+                background-position: center;
+                background-size: cover;
+            }
+            .wel {
+                background-position: center;
+                background-size: cover;
+                width: 100%;
+            }
+            .the-brand {
+                flex-wrap: wrap;
+            }
+            .img1 {
+                padding-right: 0;
+            }
+            .img2 {
+                margin-left: 0;
+            }
+
+            /* navigation exactly as original but with working slide menu */
+            nav ul li a::after {
+                content: '';
+                width: 0%;
+                height: 3px;
+                background: turquoise;
+                position: absolute;
+                bottom: -4px;
+                margin: auto;
+                display: block;
+                transition: 0.5s;
+                border-radius: 5px;
+            }
+            nav ul li a:hover::after {
+                width: 30%;
+                transform: translateX(-50px);
+            }
+            nav ul li a:active {
+                transform: translateX(-50px);
+            }
+            nav .menu {
+                display: block;
+                font-size: 25px;
+            }
+            nav .menu1 {
+                display: block;
+                font-size: 30px;
+                justify-content: space-between;
+            }
+            nav ul {
+                background: rgb(28, 66, 52);
+                position: fixed;
+                top: 0;
+                right: -200px;
+                width: 200px;
+                height: 100vh;
+                padding-top: 50px;
+                z-index: 2;
+                transition: right 0.5s;
+            }
+            nav ul li {
+                display: block;
+                margin: 25px;
+            }
+            nav ul .menu {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                cursor: pointer;
+            }
+            .sub-title {
+                font-size: 40px;
+            }
+            .about-col-1, .about-col-2 {
+                flex-basis: 100%;
+            }
+            .about-col-1 {
+                margin-bottom: 30px;
+            }
+            .about-col-2 {
+                font-size: 13px;
+            }
+            .tab-links {
+                font-size: 15px;
+                margin-right: 20px;
+            }
+            .contact-left, .contact-right {
+                flex-basis: 100%;
+            }
+            .copyright {
+                font-size: 14px;
+            }
+            .row {
+                flex-direction: column;
+            }
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+            .work-list {
+                grid-template-columns: 1fr;
+            }
+            .layer {
+                padding: 20px;
+            }
+        }
+
+        /* extra small devices (under 400px) — keep exact proportions */
+        @media only screen and (max-width: 400px) {
+            .sub-title {
+                font-size: 36px;
+            }
+            .tab-links {
+                margin-right: 12px;
+                font-size: 14px;
+            }
+            .social-icons i {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
+        /* ensure menu close button works */
+        nav .menu {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <ul id="side-menu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#brand">The Brand</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Our Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="menu" onclick="closemenu()"><i class="fas fa-times"></i> ❌</li>
+                </ul>
+                <div class="menu1" onclick="openmenu()"><i class="fa-solid fa-bars"></i></div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- YOUR EXACT IMAGES, SAME PATHS -->
+    <div class="wel-msg">
+        <p><img src="/images/Welcome.jpeg" class="wel" alt=""></p>
+    </div>
+    <div class="wel-msg">
+        <p><img src="/images/kendits.jpeg" class="wel" alt=""></p>
+    </div>
+
+    <div id="about">
+        <div class="container2">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="/images/kendits2.jpeg" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Us</h1>
+                    <p>
+                        We don’t just create visuals — we build brands and solve real business problems.
+                        At Kendits Creative Studios, we help businesses shape strong brand identities and communicate them through intentional design and compelling visual storytelling. In a crowded market, it’s not enough to look good — your brand needs clarity, consistency, and a voice people trust.
+                        <br><br>
+                        Branding is more than a logo. It’s how you’re perceived, remembered, and chosen. That’s why we approach every project strategically, from brand identity and visual direction to content, design, and video that aligns with your message and goals.
+                        <br><br>
+                        We start by understanding your brand — who you are, who you’re speaking to, and where you want to go. Then we craft creative solutions that position you clearly, elevate your presence, and help you connect with the right audience.
+                        <br><br>
+                        If your brand feels unclear, inconsistent, or undervalued, we’re the fix. We help you refine your image, strengthen your identity, and show up with confidence across every platform.
+                        <br><br>
+                        Your brand isn’t just what you show — it’s what people remember. Let’s build it right
+                    </p>
+
+                    <div class="tab-title">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Graphic Designing</span></li>
+                            <li><span>Photography</span></li>
+                            <li><span>Videography</span></li>
+                            <li><span>Video Editing</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2021-Current</span><br>UI/UX design at Kendits Studio</li>
+                            <li><span>2019-2021</span><br>Chief Video Editor For Pope John Senior High and Minor Seminary</li>
+                            <li><span>2017-2019</span><br>Internship Kendits Studio</li>
+                            <li><span>2016-2017</span><br>Chief Producer at Pope John Senior High School and Minor Seminary</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2016</span><br>UI/UX design Training at ET Institute</li>
+                            <li><span>2016</span><br>MBA from MIT Banglore</li>
+                            <li><span>2014</span><br>MBA from Pope John Senior High School</li>
+                            <li><span>2018</span><br>MBA from University of Ghana, Legon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----the Brand ----->
+    <div id="brand">
+        <h1>The Brand</h1>
+        <div class="the-brand">
+            <p><img src="/images/brand story.jpeg" class="img1" alt=""></p>
+            <p><img src="/images/05.jpeg" class="img2" alt=""></p>
+        </div>
+    </div>
+
+    <!---------services------->
+    <div id="services">
+        <div class="container2">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <h2>Graphic Design</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dicta, perspiciatis, id magni possimus quibusdam officiis debitis blanditiis illum nesciunt perferendis quod rerum similique. Accusamus alias quia corporis placeat commodi.</p>
+                </div>
+                <div>
+                    <h2>Video Editing</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dicta, perspiciatis, id magni possimus quibusdam officiis debitis blanditiis illum nesciunt perferendis quod rerum similique. Accusamus alias quia corporis placeat commodi.</p>
+                </div>
+                <div>
+                    <h2>Photography</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dicta, perspiciatis, id magni possimus quibusdam officiis debitis blanditiis illum nesciunt perferendis quod rerum similique. Accusamus alias quia corporis placeat commodi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-----portfolio-->
+    <div id="portfolio">
+        <h1 class="sub-title">Our Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="/images/sarkodie.jpeg" alt="">
+                <div class="layer">
+                    <h3>Sarkodie Masterclass</h3>
+                    <p>This a video edit of Multiple winning award Artiste delivering once again an outstanding Performance at the SRC'25, Legon</p>
+                    <a href="https://www.tiktok.com/@kendits.studio/video/7539675791479672120?_r=1&_t=ZS-93rDiJ4LY7U"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="/images/spelling.jpeg" alt="">
+                <div class="layer">
+                    <h3>Peniel Spelling Bee Competition</h3>
+                    <p>Watch as children from Peniel School Complex get ready to battle with wits and mouth to be crowned champion of Peniel Spelling Competition</p>
+                    <a href="https://www.instagram.com/reel/DRaMXKhDYmd/?igsh=eTc1MXBlMnA3d2o3"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="/images/wave.jpeg" alt="">
+                <div class="layer">
+                    <h3>Wave Speedway</h3>
+                    <p>The brand that defies the word "limits" or "barrier" showcase their immense talents and unwavering display.</p>
+                    <a href="https://www.tiktok.com/@kendits.studio/video/7564866264192077112?_r=1&_t=ZS-93rDmrXRjoe"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+
+    <!----contact form-->
+    <div id="contact">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact us</h1>
+                <p>You can reach us through our official communication channels, or send us a direct message at your convenience:</p>
+                <div class="social-icons">
+                    <i class="fa-regular fa-envelope" style="color: rgb(205, 236, 227);"> : opokuacheampongkenneth360@gmail.com</i><br>
+                    <i class="fa-solid fa-phone" style="color: rgb(205, 236, 227);"><span> : 0246601022 / 0505633152</span></i><br>
+                    <i class="fa-brands fa-tiktok" style="color: rgb(205, 226, 211);"> : @kendits.studio</i><br>
+                    <i class="fa-brands fa-instagram" style="color: rgb(205, 249, 241);"> : @kendits_studio / @acheampong.kenneth_</i><br>
+                </div>
+            </div> 
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required><br>
+                    <input type="email" name="Email" placeholder="Your Email" required><br>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea><br>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright @ Kendits Studio. All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script>
+        // original tab script
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+        // menu open/close exactly as original, but with smoother mobile feel
+        var sidemenu = document.getElementById("side-menu");
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+
+        // close menu when any link is clicked (improves UX on mobile)
+        document.querySelectorAll('#side-menu li a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 600) {
+                    closemenu();
+                }
+            });
+        });
+
+        // close menu if clicked outside (optional enhancement)
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 600) {
+                var isClickInside = sidemenu.contains(event.target) || event.target.classList.contains('menu1') || event.target.closest('.menu1');
+                if (!isClickInside && sidemenu.style.right === '0px') {
+                    closemenu();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
